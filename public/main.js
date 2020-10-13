@@ -1,4 +1,5 @@
 const socket = io();
+let userList = [];
 socket.on('message', addMessages);
 
 $(() => {
@@ -12,7 +13,7 @@ $(() => {
 
         getMessages();
         scrollDownChat();
-        renderUserList(list);
+        renderUserList(userList);
     });
 
     $('#confirmar_nome').click(() => {
@@ -46,14 +47,11 @@ $(() => {
 });
 
 socket.on('list-update', (data) => {
-
-    console.log(data.list);
-
     userList = data.list;
     renderUserList(data);
 });
 
-function renderUserList(typeUpdate) {
+function renderUserList(typeUpdate) {  
 
     if (typeUpdate.joined) {
         $('#messages').append(`<h4> ${typeUpdate.joined} entrou na sala! </h4>`);
@@ -68,6 +66,11 @@ function renderUserList(typeUpdate) {
 
         $('#chatList').html('');
         typeUpdate.list.forEach(stringNome => {
+            $('#chatList').append(`<li> ${stringNome} </li>`);
+        });
+    } else {
+        $('#chatList').html('');
+        typeUpdate.forEach(stringNome => {
             $('#chatList').append(`<li> ${stringNome} </li>`);
         });
     }
