@@ -9,35 +9,39 @@
 </head>
 
 <body>
-    <div class="container">
-        <br>
-        <div class="jumbotron" id="div_input_name">
-            <h1 class="display-4">Insira seu nome</h1>
+    <div class="container-fluid">
+        <div class="col-12">
             <br>
-            <input class="form-control" placeholder="Nome" id="input_name">
-            <input type="hidden" id="name" value="Fulano">
-            <br>
-            <button id="confirmar_nome" class="btn btn-success">Confirmar</button>
-        </div>
-
-        <span class="glyphicon glyphicon-trash"></span>
-
-        <div  class="div_chat_page" id="div_chat_page">
-            <div id="div_group_messages" class="jumbotron">
-                    <div id="messages"></div>
+            <div class="jumbotron" id="div_input_name">
+                <h1 class="display-4">Insira seu nome</h1>
+                <br>
+                <input class="form-control" placeholder="Nome" id="input_name">
+                <input type="hidden" id="name" value="Fulano">
+                <br>
+                <button id="confirmar_nome" class="btn btn-success">Confirmar</button>
             </div>
         </div>
-        <div class="div_chat_page">
+    </div>
+    <div class="row" id="group_chat">
+        <div class="div_chat_page col-10" id="div_chat_page">
+            <div id="div_group_messages">
+                <div id="messages"></div>
+            </div>
+        </div>
+        <div class="col-2 div_chat_page" id="chatList"></div>
+        <div class="div_chat_page col-12" id="div_text_chat">
             <br>
             <textarea id="message" class="form-control" placeholder="Escreva aqui sua mensagem..."></textarea>
             <br>
             <button id="enviar_msg" class="btn btn-success">Enviar</button>
+            <br><br>
         </div>
     </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
 </body>
 
 </html>

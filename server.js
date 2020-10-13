@@ -53,9 +53,8 @@ io.on('connection', (socket) => {
             });
     });
 
-    socket.on('disconnect', () => {
+    socket.on('disconnect', () => {     
         connectedUsers = connectedUsers.filter(u => u != socket.username);
-        console.log(connectedUsers);
 
         socket.broadcast.emit('list-update', {
             left: socket.username,

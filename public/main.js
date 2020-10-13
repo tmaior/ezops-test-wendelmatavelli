@@ -6,8 +6,10 @@ $(() => {
     socket.on('user-ok', (list) => {
         $('#div_input_name').hide();
         $('.div_chat_page').show();
+        $('#div_text_chat').show();
 
         userList = list;
+
         getMessages();
         scrollDownChat();
         renderUserList(list);
@@ -44,15 +46,30 @@ $(() => {
 });
 
 socket.on('list-update', (data) => {
+
+    console.log(data.list);
+
     userList = data.list;
     renderUserList(data);
 });
 
 function renderUserList(typeUpdate) {
+
     if (typeUpdate.joined) {
-            $('#messages').append(`<h4> ${typeUpdate.joined} entrou na sala! </h4>`);
+        $('#messages').append(`<h4> ${typeUpdate.joined} entrou na sala! </h4>`);
+
+        $('#chatList').html('');
+        typeUpdate.list.forEach(stringNome => {
+            $('#chatList').append(`<li> ${stringNome} </li>`);
+        });
+
     } else if (typeUpdate.left) {
-            $('#messages').append(`<h4> ${typeUpdate.left} saiu na sala! </h4>`);
+        $('#messages').append(`<h4> ${typeUpdate.left} saiu na sala! </h4>`);
+
+        $('#chatList').html('');
+        typeUpdate.list.forEach(stringNome => {
+            $('#chatList').append(`<li> ${stringNome} </li>`);
+        });
     }
 
     scrollDownChat();
@@ -75,6 +92,6 @@ function sendMessage(message) {
 function scrollDownChat() {
     let $target = $('#div_chat_page');
     $target.animate({
-        scrollTop: $target.height()
+        scrollTop: $('#messages').height()
     }, 1000);
 }

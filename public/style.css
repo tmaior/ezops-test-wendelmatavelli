@@ -1,4 +1,6 @@
-
+.container {
+ background-color: #808080;
+}
 #div_input_name {
         /* display: none; */
 }
@@ -6,6 +8,8 @@
 #div_chat_page {
     height: 600px;
     overflow:auto; 
+    border-radius: 10px;
+    background-color: #FFF;
 }
 
 .div_chat_page {
@@ -15,10 +19,11 @@
 #div_group_messages {
     margin-bottom: 0px;
 }
-
-.chatList {
-    flex: 1;
-    background-color: #FFF;
+#chatList {
+    background-color: #e9ecef;
     overflow-y: scroll;
-    max-height: calc(100vh - 40px);
+}
+
+#group_chat {
+    padding: 20px;
 }
