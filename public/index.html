@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <div class="jumbotron" id="div_input_name">
+            <h1 class="display-4">Insira seu nome</h1>
+            <br>
+            <input class="form-control" placeholder="Nome" id="input_name">
+            <input type="hidden" id="name" value="Fulano">
+            <br>
+            <button id="confirmar_nome" class="btn btn-success">Confirmar</button>
+        </div>
+
+        <span class="glyphicon glyphicon-trash"></span>
+
+        <div  class="div_chat_page" id="div_chat_page">
+            <div id="div_group_messages" class="jumbotron">
+                    <div id="messages"></div>
+            </div>
+        </div>
+        <div class="div_chat_page">
+            <br>
+            <textarea id="message" class="form-control" placeholder="Escreva aqui sua mensagem..."></textarea>
+            <br>
+            <button id="enviar_msg" class="btn btn-success">Enviar</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/main.js"></script>
+</body>
+
+</html>
