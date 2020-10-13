@@ -18,7 +18,6 @@ $(() => {
             $('#name').val($('#input_name').val());
 
             socket.emit('join-request', $('#name').val());
-            getMessages();
             scrollDownChat();
         } else {
             alert('Insira seu nome antes de continuar.');
@@ -52,7 +51,7 @@ socket.on('list-update', (data) => {
 function renderUserList(typeUpdate) {
     if (typeUpdate.joined) {
             $('#messages').append(`<h4> ${typeUpdate.joined} entrou na sala! </h4>`);
-    } else {
+    } else if (typeUpdate.left) {
             $('#messages').append(`<h4> ${typeUpdate.left} saiu na sala! </h4>`);
     }
 
